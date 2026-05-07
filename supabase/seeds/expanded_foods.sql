@@ -1,0 +1,191 @@
+-- =====================================================
+-- Nutrify — Expanded Foods Seed (~130 foods)
+-- =====================================================
+-- Run AFTER 0001_initial_schema.sql + the original seed.sql.
+-- This adds common Indian + global foods on top of the original 10.
+-- Per-100g nutrition values from public sources (USDA / IFCT-aligned approximations).
+-- Values are reasonable averages; Phase 4 will replace with verified IFCT 2017 import.
+-- =====================================================
+
+insert into foods (name, name_hindi, region, category, serving_size_g, serving_label, calories_per_100g, protein_g, carbs_g, fat_g, fiber_g, source, verified) values
+
+-- ── Grains & Breads ──
+('Plain Paratha', 'पराठा', 'north', 'grain', 60, '1 medium', 330, 8.0, 50.0, 11.0, 4.0, 'ifct', true),
+('Aloo Paratha', 'आलू पराठा', 'north', 'grain', 100, '1 large', 280, 6.0, 35.0, 12.0, 4.0, 'ifct', true),
+('Paneer Paratha', 'पनीर पराठा', 'north', 'grain', 100, '1 large', 320, 11.0, 32.0, 16.0, 3.5, 'ifct', true),
+('Methi Paratha', 'मेथी पराठा', 'north', 'grain', 80, '1 medium', 290, 7.0, 38.0, 11.0, 5.0, 'ifct', true),
+('Naan', 'नान', 'north', 'grain', 80, '1 medium', 310, 9.0, 51.0, 7.0, 2.0, 'ifct', true),
+('Butter Naan', 'बटर नान', 'north', 'grain', 90, '1 medium', 360, 9.0, 50.0, 13.0, 2.0, 'ifct', true),
+('Kulcha', 'कुलचा', 'north', 'grain', 90, '1 medium', 320, 9.0, 53.0, 8.0, 2.0, 'ifct', true),
+('Bhatura', 'भटूरा', 'north', 'grain', 90, '1 piece', 380, 8.0, 50.0, 17.0, 2.0, 'ifct', true),
+('Pav', 'पाव', 'west', 'grain', 50, '1 piece', 310, 9.0, 55.0, 5.0, 2.0, 'ifct', true),
+('Phulka', 'फुल्का', 'global', 'grain', 30, '1 medium', 260, 10.0, 53.0, 2.0, 5.5, 'ifct', true),
+('White Rice (cooked)', 'चावल', 'global', 'grain', 150, '1 katori', 130, 2.7, 28.0, 0.3, 0.4, 'usda', true),
+('Brown Rice (cooked)', 'ब्राउन चावल', 'global', 'grain', 150, '1 katori', 111, 2.6, 23.0, 0.9, 1.8, 'usda', true),
+('Jeera Rice', 'जीरा चावल', 'global', 'grain', 150, '1 katori', 150, 3.0, 27.0, 4.0, 1.0, 'ifct', true),
+('Veg Pulao', 'पुलाव', 'global', 'grain', 150, '1 katori', 150, 3.0, 25.0, 4.0, 1.5, 'ifct', true),
+('Veg Biryani', 'वेज बिरयानी', 'global', 'grain', 200, '1 plate', 170, 4.0, 26.0, 5.0, 1.5, 'ifct', true),
+('Chicken Biryani', 'चिकन बिरयानी', 'global', 'grain', 250, '1 plate', 210, 11.0, 24.0, 7.0, 1.0, 'ifct', true),
+('Mutton Biryani', 'मटन बिरयानी', 'global', 'grain', 250, '1 plate', 240, 12.0, 24.0, 10.0, 1.0, 'ifct', true),
+('Fried Rice (veg)', 'फ्राइड राइस', 'global', 'grain', 200, '1 plate', 170, 3.5, 26.0, 6.0, 1.5, 'ifct', true),
+('Khichdi', 'खिचड़ी', 'global', 'grain', 200, '1 katori', 120, 5.0, 19.0, 2.5, 1.5, 'ifct', true),
+('Poha', 'पोहा', 'west', 'grain', 150, '1 plate', 130, 2.5, 25.0, 2.0, 1.5, 'ifct', true),
+('Upma', 'उपमा', 'south', 'grain', 150, '1 plate', 140, 3.0, 20.0, 5.0, 2.0, 'ifct', true),
+('Daliya (cooked)', 'दलिया', 'global', 'grain', 200, '1 katori', 120, 3.0, 23.0, 1.0, 3.0, 'ifct', true),
+
+-- ── Dals & Legumes ──
+('Dal Makhani', 'दाल मखनी', 'north', 'dal', 150, '1 katori', 165, 7.0, 17.0, 7.0, 4.0, 'ifct', true),
+('Moong Dal', 'मूंग दाल', 'global', 'dal', 150, '1 katori', 106, 7.0, 15.0, 1.5, 5.0, 'ifct', true),
+('Chana Dal', 'चना दाल', 'global', 'dal', 150, '1 katori', 140, 7.0, 19.0, 3.0, 6.0, 'ifct', true),
+('Masoor Dal', 'मसूर दाल', 'global', 'dal', 150, '1 katori', 110, 7.0, 16.0, 1.0, 5.0, 'ifct', true),
+('Urad Dal', 'उड़द दाल', 'global', 'dal', 150, '1 katori', 115, 7.0, 17.0, 1.0, 5.0, 'ifct', true),
+('Rajma', 'राजमा', 'north', 'dal', 150, '1 katori', 140, 8.0, 19.0, 2.5, 6.0, 'ifct', true),
+('Chole', 'छोले', 'north', 'dal', 150, '1 katori', 165, 8.0, 22.0, 4.0, 6.0, 'ifct', true),
+('Sambhar', 'सांभर', 'south', 'dal', 200, '1 katori', 80, 4.0, 11.0, 2.0, 3.0, 'ifct', true),
+('Kadhi', 'कढ़ी', 'global', 'dal', 200, '1 katori', 75, 3.0, 7.0, 4.0, 0.5, 'ifct', true),
+
+-- ── Sabzi & Curries ──
+('Aloo Gobi', 'आलू गोभी', 'global', 'sabzi', 150, '1 katori', 80, 2.0, 12.0, 3.0, 3.0, 'ifct', true),
+('Aloo Matar', 'आलू मटर', 'global', 'sabzi', 150, '1 katori', 95, 3.0, 14.0, 3.0, 3.0, 'ifct', true),
+('Aloo Jeera', 'आलू जीरा', 'global', 'sabzi', 150, '1 katori', 100, 2.0, 17.0, 3.0, 2.0, 'ifct', true),
+('Aloo Palak', 'आलू पालक', 'global', 'sabzi', 150, '1 katori', 85, 3.0, 11.0, 4.0, 3.0, 'ifct', true),
+('Bhindi Masala', 'भिंडी मसाला', 'global', 'sabzi', 150, '1 katori', 95, 2.5, 11.0, 5.0, 4.0, 'ifct', true),
+('Baingan Bharta', 'बैंगन भर्ता', 'global', 'sabzi', 150, '1 katori', 100, 2.0, 10.0, 7.0, 4.0, 'ifct', true),
+('Mix Vegetable', 'मिक्स वेज', 'global', 'sabzi', 150, '1 katori', 90, 3.0, 12.0, 3.5, 3.0, 'ifct', true),
+('Palak Paneer', 'पालक पनीर', 'global', 'sabzi', 150, '1 katori', 175, 9.0, 7.0, 12.0, 2.0, 'ifct', true),
+('Paneer Butter Masala', 'पनीर बटर मसाला', 'north', 'sabzi', 150, '1 katori', 265, 11.0, 9.0, 22.0, 1.0, 'ifct', true),
+('Shahi Paneer', 'शाही पनीर', 'north', 'sabzi', 150, '1 katori', 250, 10.0, 10.0, 20.0, 1.0, 'ifct', true),
+('Kadai Paneer', 'कढ़ाई पनीर', 'north', 'sabzi', 150, '1 katori', 210, 10.0, 8.0, 16.0, 1.5, 'ifct', true),
+('Matar Paneer', 'मटर पनीर', 'north', 'sabzi', 150, '1 katori', 190, 9.0, 11.0, 13.0, 2.0, 'ifct', true),
+('Mushroom Masala', 'मशरूम मसाला', 'global', 'sabzi', 150, '1 katori', 110, 4.0, 8.0, 7.0, 1.5, 'ifct', true),
+('Lauki Sabzi', 'लौकी', 'global', 'sabzi', 150, '1 katori', 50, 1.5, 7.0, 2.0, 1.5, 'ifct', true),
+('Karela Sabzi', 'करेला', 'global', 'sabzi', 150, '1 katori', 70, 2.0, 9.0, 3.0, 2.5, 'ifct', true),
+('Methi Aloo', 'मेथी आलू', 'global', 'sabzi', 150, '1 katori', 90, 3.0, 11.0, 4.0, 3.0, 'ifct', true),
+('Avial', 'अवियल', 'south', 'sabzi', 150, '1 katori', 120, 3.0, 10.0, 8.0, 4.0, 'ifct', true),
+('Cabbage Thoran', 'पत्ता गोभी थोरन', 'south', 'sabzi', 150, '1 katori', 95, 2.5, 10.0, 5.0, 3.0, 'ifct', true),
+('Beans Poriyal', 'बीन्स पोरियल', 'south', 'sabzi', 150, '1 katori', 100, 2.5, 11.0, 5.0, 3.5, 'ifct', true),
+
+-- ── South Indian ──
+('Masala Dosa', 'मसाला डोसा', 'south', 'grain', 150, '1 medium', 190, 5.0, 30.0, 6.0, 2.0, 'ifct', true),
+('Rava Dosa', 'रवा डोसा', 'south', 'grain', 100, '1 medium', 190, 4.0, 28.0, 7.0, 1.0, 'ifct', true),
+('Onion Dosa', 'प्याज डोसा', 'south', 'grain', 110, '1 medium', 175, 4.5, 28.0, 5.5, 1.5, 'ifct', true),
+('Uttapam', 'उत्तपम', 'south', 'grain', 120, '1 medium', 150, 4.0, 25.0, 4.0, 1.0, 'ifct', true),
+('Medu Vada', 'मेदु वड़ा', 'south', 'snack', 50, '1 piece', 290, 8.0, 30.0, 16.0, 3.0, 'ifct', true),
+('Sambar Vada', 'सांभर वड़ा', 'south', 'snack', 100, '1 plate', 190, 6.0, 22.0, 9.0, 2.5, 'ifct', true),
+('Idiyappam', 'इडियप्पम', 'south', 'grain', 100, '1 plate', 140, 3.0, 30.0, 1.0, 1.0, 'ifct', true),
+('Appam', 'अप्पम', 'south', 'grain', 80, '1 medium', 120, 2.5, 24.0, 1.5, 0.5, 'ifct', true),
+('Pongal', 'पोंगल', 'south', 'grain', 200, '1 katori', 165, 5.0, 24.0, 5.5, 1.0, 'ifct', true),
+('Curd Rice', 'दही चावल', 'south', 'grain', 200, '1 katori', 110, 3.5, 18.0, 2.5, 0.5, 'ifct', true),
+('Rasam', 'रसम', 'south', 'beverage', 200, '1 katori', 35, 2.0, 6.0, 0.5, 1.0, 'ifct', true),
+
+-- ── Snacks ──
+('Samosa', 'समोसा', 'global', 'snack', 60, '1 piece', 310, 6.0, 30.0, 18.0, 2.0, 'ifct', true),
+('Kachori', 'कचौड़ी', 'north', 'snack', 60, '1 piece', 330, 7.0, 35.0, 18.0, 3.0, 'ifct', true),
+('Aloo Bonda', 'आलू बोंडा', 'south', 'snack', 50, '1 piece', 280, 5.0, 30.0, 15.0, 2.0, 'ifct', true),
+('Mixed Veg Pakora', 'मिक्स पकोड़ा', 'global', 'snack', 50, '1 plate', 285, 7.0, 25.0, 17.0, 3.0, 'ifct', true),
+('Onion Bhaji', 'प्याज भजी', 'global', 'snack', 50, '1 plate', 290, 6.0, 25.0, 18.0, 3.0, 'ifct', true),
+('Bhel Puri', 'भेल पूरी', 'west', 'snack', 100, '1 plate', 155, 4.0, 27.0, 3.0, 3.0, 'ifct', true),
+('Pani Puri', 'पानी पूरी', 'west', 'snack', 60, '6 pieces', 200, 4.0, 30.0, 7.0, 2.0, 'ifct', true),
+('Sev Puri', 'सेव पूरी', 'west', 'snack', 80, '1 plate', 220, 5.0, 28.0, 9.0, 3.0, 'ifct', true),
+('Dahi Puri', 'दही पूरी', 'west', 'snack', 100, '1 plate', 195, 5.0, 27.0, 7.0, 2.0, 'ifct', true),
+('Vada Pav', 'वड़ा पाव', 'west', 'snack', 130, '1 piece', 280, 8.0, 35.0, 12.0, 2.0, 'ifct', true),
+('Pav Bhaji', 'पाव भाजी', 'west', 'snack', 250, '1 plate', 155, 4.0, 22.0, 5.0, 2.5, 'ifct', true),
+('Dhokla', 'ढोकला', 'west', 'snack', 100, '1 plate', 150, 6.0, 22.0, 4.0, 2.0, 'ifct', true),
+('Khandvi', 'खांडवी', 'west', 'snack', 100, '1 plate', 180, 7.0, 22.0, 6.0, 1.0, 'ifct', true),
+('Khaman', 'खमण', 'west', 'snack', 100, '1 plate', 165, 7.0, 22.0, 5.0, 2.0, 'ifct', true),
+('Aloo Tikki', 'आलू टिक्की', 'north', 'snack', 80, '1 piece', 180, 3.0, 25.0, 7.0, 2.0, 'ifct', true),
+('Maggi Noodles', 'मैगी', 'global', 'snack', 70, '1 packet', 310, 7.0, 50.0, 9.0, 2.0, 'usda', true),
+
+-- ── Sweets ──
+('Gulab Jamun', 'गुलाब जामुन', 'global', 'sweets', 40, '2 pieces', 360, 5.0, 50.0, 15.0, 0.5, 'ifct', true),
+('Rasgulla', 'रसगुल्ला', 'east', 'sweets', 40, '2 pieces', 190, 5.0, 35.0, 4.0, 0.0, 'ifct', true),
+('Jalebi', 'जलेबी', 'global', 'sweets', 40, '2 pieces', 410, 4.0, 60.0, 18.0, 0.0, 'ifct', true),
+('Kheer', 'खीर', 'global', 'sweets', 150, '1 katori', 165, 4.0, 25.0, 5.0, 0.5, 'ifct', true),
+('Sooji Halwa', 'सूजी हलवा', 'global', 'sweets', 100, '1 katori', 410, 5.0, 50.0, 21.0, 1.0, 'ifct', true),
+('Gajar Halwa', 'गाजर हलवा', 'north', 'sweets', 100, '1 katori', 270, 4.0, 35.0, 13.0, 2.0, 'ifct', true),
+('Besan Laddu', 'बेसन लड्डू', 'global', 'sweets', 30, '1 piece', 480, 12.0, 50.0, 26.0, 4.0, 'ifct', true),
+('Barfi', 'बर्फी', 'global', 'sweets', 30, '1 piece', 415, 8.0, 45.0, 22.0, 0.5, 'ifct', true),
+('Rasmalai', 'रसमलाई', 'east', 'sweets', 80, '1 piece', 270, 7.0, 40.0, 9.0, 0.0, 'ifct', true),
+('Kulfi', 'कुल्फी', 'global', 'sweets', 80, '1 piece', 210, 6.0, 25.0, 11.0, 0.0, 'ifct', true),
+
+-- ── Meat / Fish / Egg ──
+('Chicken Curry', 'चिकन करी', 'global', 'meat', 150, '1 katori', 165, 18.0, 4.0, 9.0, 0.5, 'ifct', true),
+('Butter Chicken', 'बटर चिकन', 'north', 'meat', 150, '1 katori', 245, 14.0, 8.0, 18.0, 0.5, 'ifct', true),
+('Tandoori Chicken', 'तंदूरी चिकन', 'north', 'meat', 100, '2 pieces', 200, 25.0, 2.0, 11.0, 0.0, 'ifct', true),
+('Chicken Tikka', 'चिकन टिक्का', 'north', 'meat', 100, '4 pieces', 190, 23.0, 3.0, 9.0, 0.0, 'ifct', true),
+('Chicken Kebab (Seekh)', 'चिकन कबाब', 'north', 'meat', 100, '2 pieces', 245, 22.0, 4.0, 16.0, 0.0, 'ifct', true),
+('Egg Bhurji', 'अंडा भुर्जी', 'global', 'meat', 100, '1 plate', 155, 11.0, 2.0, 11.0, 0.5, 'ifct', true),
+('Egg Curry', 'अंडा करी', 'global', 'meat', 150, '1 katori', 150, 9.0, 5.0, 11.0, 1.0, 'ifct', true),
+('Omelette (plain)', 'ऑमलेट', 'global', 'meat', 80, '1 medium', 180, 12.0, 1.0, 14.0, 0.0, 'usda', true),
+('Fish Curry', 'मछली करी', 'global', 'meat', 150, '1 katori', 150, 17.0, 5.0, 7.0, 0.5, 'ifct', true),
+('Fish Fry', 'मछली फ्राई', 'global', 'meat', 100, '1 piece', 200, 22.0, 5.0, 10.0, 0.5, 'ifct', true),
+('Mutton Curry', 'मटन करी', 'global', 'meat', 150, '1 katori', 250, 17.0, 5.0, 18.0, 0.5, 'ifct', true),
+('Prawn Curry', 'झींगा करी', 'global', 'meat', 150, '1 katori', 165, 18.0, 6.0, 7.0, 0.5, 'ifct', true),
+
+-- ── Dairy ──
+('Milk (full fat)', 'दूध', 'global', 'dairy', 200, '1 glass', 62, 3.2, 4.8, 3.5, 0.0, 'ifct', true),
+('Milk (toned)', 'टोन्ड दूध', 'global', 'dairy', 200, '1 glass', 58, 3.2, 4.7, 3.0, 0.0, 'ifct', true),
+('Milk (skimmed)', 'स्किम्ड दूध', 'global', 'dairy', 200, '1 glass', 35, 3.4, 5.0, 0.1, 0.0, 'ifct', true),
+('Sweet Lassi', 'मीठी लस्सी', 'north', 'dairy', 250, '1 glass', 90, 3.0, 13.0, 3.0, 0.0, 'ifct', true),
+('Salted Lassi', 'नमकीन लस्सी', 'north', 'dairy', 250, '1 glass', 50, 3.0, 5.0, 2.0, 0.0, 'ifct', true),
+('Buttermilk', 'छाछ', 'global', 'dairy', 250, '1 glass', 40, 3.0, 5.0, 1.0, 0.0, 'ifct', true),
+('Ghee', 'घी', 'global', 'dairy', 5, '1 tsp', 898, 0.0, 0.0, 99.0, 0.0, 'ifct', true),
+('Butter', 'मक्खन', 'global', 'dairy', 10, '1 tbsp', 715, 0.9, 0.1, 81.0, 0.0, 'usda', true),
+('Cheese', 'चीज़', 'global', 'dairy', 30, '1 slice', 330, 22.0, 1.5, 27.0, 0.0, 'usda', true),
+
+-- ── Fruits ──
+('Apple', 'सेब', 'global', 'fruit', 150, '1 medium', 52, 0.3, 14.0, 0.2, 2.4, 'usda', true),
+('Mango', 'आम', 'global', 'fruit', 150, '1 medium', 60, 0.8, 15.0, 0.4, 1.6, 'usda', true),
+('Papaya', 'पपीता', 'global', 'fruit', 200, '1 cup', 43, 0.5, 11.0, 0.3, 1.7, 'usda', true),
+('Orange', 'संतरा', 'global', 'fruit', 130, '1 medium', 47, 0.9, 12.0, 0.1, 2.4, 'usda', true),
+('Watermelon', 'तरबूज', 'global', 'fruit', 150, '1 cup', 30, 0.6, 8.0, 0.2, 0.4, 'usda', true),
+('Grapes', 'अंगूर', 'global', 'fruit', 100, '1 cup', 69, 0.7, 18.0, 0.2, 0.9, 'usda', true),
+('Pomegranate', 'अनार', 'global', 'fruit', 150, '1 medium', 83, 1.7, 19.0, 1.2, 4.0, 'usda', true),
+('Pineapple', 'अनानास', 'global', 'fruit', 150, '1 cup', 50, 0.5, 13.0, 0.1, 1.4, 'usda', true),
+('Guava', 'अमरूद', 'global', 'fruit', 100, '1 medium', 68, 2.6, 14.0, 0.95, 5.4, 'usda', true),
+('Pear', 'नाशपाती', 'global', 'fruit', 150, '1 medium', 57, 0.4, 15.0, 0.1, 3.1, 'usda', true),
+('Strawberry', 'स्ट्रॉबेरी', 'global', 'fruit', 100, '1 cup', 32, 0.7, 7.7, 0.3, 2.0, 'usda', true),
+
+-- ── Vegetables (raw / boiled) ──
+('Spinach (cooked)', 'पालक', 'global', 'sabzi', 100, '1 cup', 23, 2.9, 3.6, 0.4, 2.2, 'usda', true),
+('Cabbage', 'पत्ता गोभी', 'global', 'sabzi', 100, '1 cup', 25, 1.3, 6.0, 0.1, 2.5, 'usda', true),
+('Carrot', 'गाजर', 'global', 'sabzi', 100, '1 medium', 41, 0.9, 10.0, 0.2, 2.8, 'usda', true),
+('Tomato', 'टमाटर', 'global', 'sabzi', 100, '1 medium', 18, 0.9, 3.9, 0.2, 1.2, 'usda', true),
+('Cucumber', 'खीरा', 'global', 'sabzi', 100, '1 cup', 16, 0.7, 3.6, 0.1, 0.5, 'usda', true),
+('Capsicum', 'शिमला मिर्च', 'global', 'sabzi', 100, '1 medium', 27, 0.9, 6.0, 0.3, 2.1, 'usda', true),
+('Onion (raw)', 'प्याज', 'global', 'sabzi', 100, '1 medium', 40, 1.1, 9.0, 0.1, 1.7, 'usda', true),
+('Potato (boiled)', 'आलू', 'global', 'sabzi', 100, '1 medium', 87, 1.9, 20.0, 0.1, 1.8, 'usda', true),
+('Cauliflower', 'फूलगोभी', 'global', 'sabzi', 100, '1 cup', 25, 1.9, 5.0, 0.3, 2.0, 'usda', true),
+('Broccoli', 'ब्रोकली', 'global', 'sabzi', 100, '1 cup', 34, 2.8, 7.0, 0.4, 2.6, 'usda', true),
+
+-- ── Beverages ──
+('Chai (with milk + sugar)', 'चाय', 'global', 'beverage', 150, '1 cup', 55, 1.2, 7.0, 2.5, 0.0, 'ifct', true),
+('Black Tea', 'काली चाय', 'global', 'beverage', 150, '1 cup', 1, 0.0, 0.0, 0.0, 0.0, 'usda', true),
+('Coffee (with milk)', 'कॉफी', 'global', 'beverage', 150, '1 cup', 50, 1.5, 5.0, 2.5, 0.0, 'ifct', true),
+('Black Coffee', 'ब्लैक कॉफी', 'global', 'beverage', 150, '1 cup', 2, 0.3, 0.0, 0.0, 0.0, 'usda', true),
+('Nimbu Pani', 'नींबू पानी', 'global', 'beverage', 250, '1 glass', 40, 0.1, 10.0, 0.0, 0.0, 'ifct', true),
+('Coconut Water', 'नारियल पानी', 'global', 'beverage', 200, '1 cup', 19, 0.7, 3.7, 0.2, 1.1, 'usda', true),
+('Mango Shake', 'मैंगो शेक', 'global', 'beverage', 250, '1 glass', 120, 3.0, 18.0, 4.0, 1.0, 'ifct', true),
+('Sugarcane Juice', 'गन्ने का रस', 'global', 'beverage', 250, '1 glass', 55, 0.2, 14.0, 0.0, 0.0, 'ifct', true),
+
+-- ── Western / Continental ──
+('Pizza (cheese)', 'पिज्जा', 'global', 'snack', 150, '2 slices', 265, 11.0, 33.0, 10.0, 2.0, 'usda', true),
+('Pizza (chicken)', 'चिकन पिज्जा', 'global', 'snack', 150, '2 slices', 285, 14.0, 32.0, 11.0, 2.0, 'usda', true),
+('Veg Burger', 'वेज बर्गर', 'global', 'snack', 200, '1 burger', 250, 8.0, 32.0, 10.0, 2.5, 'usda', true),
+('Chicken Burger', 'चिकन बर्गर', 'global', 'snack', 200, '1 burger', 295, 17.0, 30.0, 13.0, 2.0, 'usda', true),
+('Pasta (red sauce)', 'पास्ता', 'global', 'grain', 200, '1 plate', 155, 5.0, 28.0, 3.0, 2.0, 'usda', true),
+('Pasta (white sauce)', 'व्हाइट पास्ता', 'global', 'grain', 200, '1 plate', 210, 7.0, 25.0, 9.0, 1.5, 'usda', true),
+('Veg Sandwich', 'सैंडविच', 'global', 'snack', 150, '1 sandwich', 210, 6.0, 30.0, 7.0, 2.0, 'usda', true),
+('Chicken Sandwich', 'चिकन सैंडविच', 'global', 'snack', 150, '1 sandwich', 250, 14.0, 28.0, 9.0, 2.0, 'usda', true),
+('French Fries', 'फ्रेंच फ्राइज', 'global', 'snack', 100, '1 medium', 310, 3.4, 41.0, 15.0, 3.8, 'usda', true),
+('Veg Salad', 'सलाद', 'global', 'sabzi', 150, '1 plate', 30, 1.5, 6.0, 0.2, 2.5, 'usda', true),
+('Cornflakes (with milk)', 'कॉर्नफ्लेक्स', 'global', 'grain', 200, '1 bowl', 110, 4.0, 22.0, 1.0, 1.0, 'usda', true),
+('Oats (cooked)', 'ओट्स', 'global', 'grain', 200, '1 bowl', 71, 2.5, 12.0, 1.5, 1.7, 'usda', true),
+('White Bread', 'सफेद ब्रेड', 'global', 'grain', 30, '1 slice', 265, 9.0, 49.0, 3.0, 2.7, 'usda', true),
+('Brown Bread', 'ब्राउन ब्रेड', 'global', 'grain', 30, '1 slice', 250, 12.0, 48.0, 3.0, 7.0, 'usda', true),
+
+-- ── Nuts & Seeds ──
+('Almonds', 'बादाम', 'global', 'snack', 30, '20 pieces', 579, 21.0, 22.0, 50.0, 12.0, 'usda', true),
+('Cashews', 'काजू', 'global', 'snack', 30, '20 pieces', 553, 18.0, 30.0, 44.0, 3.3, 'usda', true),
+('Peanuts', 'मूंगफली', 'global', 'snack', 30, '1 handful', 567, 26.0, 16.0, 49.0, 8.0, 'usda', true),
+('Walnuts', 'अखरोट', 'global', 'snack', 30, '5 pieces', 654, 15.0, 14.0, 65.0, 7.0, 'usda', true);
